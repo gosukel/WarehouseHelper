@@ -55,6 +55,7 @@ body {
     border: none;
     cursor: pointer;
     color: rgba(19, 13, 51);
+    transition: all 0.2s ease-out;
 }
 
 #add-pallet-btn {
@@ -65,11 +66,7 @@ body {
     border-left: 1px solid rgba(19, 13, 51, 0.7);
 }
 
-#add-pallet-btn:hover {
-    background-color: rgba(19, 13, 51, 0.7);
-    color: #fff;
-}
-
+#add-pallet-btn:hover,
 #calculate-btn:hover {
     background-color: rgba(19, 13, 51, 0.7);
     color: #fff;
