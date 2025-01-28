@@ -75,8 +75,19 @@ body {
 .skid {
     margin-top: 20px;
     display: flex;
+    padding: 10px 15px;
+}
+
+.skid .skid-details {
+    display: flex;
     justify-content: space-around;
-    padding: 10px 5px;
+    width: 100%;
+    transform: translateX(-20px);
+    transition: transform 0.3s ease-out;
+}
+
+.skid-details.slide {
+    transform: translateX(10px);
 }
 
 .density {
@@ -90,6 +101,7 @@ body {
     display: flex;
     justify-content: center;
     align-items: center;
+    transition: opacity 0.3s ease-in;
 }
 
 .density.active {

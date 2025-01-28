@@ -13,6 +13,11 @@ function addPallet() {
     densityDiv.classList.add("density");
     newSkid.appendChild(densityDiv);
 
+    // skid-details div
+    let skidDetails = document.createElement("div");
+    skidDetails.classList.add("skid-details");
+    newSkid.appendChild(skidDetails);
+
     // weight-div
     let weightDiv = document.createElement("div");
     weightDiv.classList.add("weight-div");
@@ -23,7 +28,7 @@ function addPallet() {
     let weightSpan = document.createElement("span");
     weightSpan.innerText = "lbs";
     weightDiv.appendChild(weightSpan);
-    newSkid.appendChild(weightDiv);
+    skidDetails.appendChild(weightDiv);
 
     // length-div
     let lengthDiv = document.createElement("div");
@@ -35,7 +40,7 @@ function addPallet() {
     let lengthSpan = document.createElement("span");
     lengthSpan.innerText = "in.";
     lengthDiv.appendChild(lengthSpan);
-    newSkid.appendChild(lengthDiv);
+    skidDetails.appendChild(lengthDiv);
 
     // width-div
     let widthDiv = document.createElement("div");
@@ -47,7 +52,7 @@ function addPallet() {
     let widthSpan = document.createElement("span");
     widthSpan.innerText = "in.";
     widthDiv.appendChild(widthSpan);
-    newSkid.appendChild(widthDiv);
+    skidDetails.appendChild(widthDiv);
 
     // height-div
     let heightDiv = document.createElement("div");
@@ -59,7 +64,7 @@ function addPallet() {
     let heightSpan = document.createElement("span");
     heightSpan.innerText = "in.";
     heightDiv.appendChild(heightSpan);
-    newSkid.appendChild(heightDiv);
+    skidDetails.appendChild(heightDiv);
 
     container.appendChild(newSkid);
 }
@@ -88,16 +93,19 @@ function calculateSkids() {
         let length = Number(skid.querySelector(".length-div input").value);
         let width = Number(skid.querySelector(".width-div input").value);
         let height = Number(skid.querySelector(".height-div input").value);
+        let skidDetails = skid.querySelector(".skid-details");
         let densityVal = calculateSkid(weight, length, width, height);
         if (!densityVal) return;
         let densityDiv = skid.querySelector(".density");
-        densityDiv.classList.add("active");
         denseClass =
             densityVal >= 10
                 ? "max-dense"
                 : densityVal > 6
                 ? "med-dense"
                 : "min-dense";
+
+        skidDetails.classList.add("slide");
+        densityDiv.classList.add("active");
         densityDiv.classList.add(denseClass);
         densityDiv.innerText = densityVal;
     });
